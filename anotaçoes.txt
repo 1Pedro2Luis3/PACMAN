@@ -1,0 +1,58 @@
+sprites: 
+
+-Pac man *Padrão*
+  -esquerda 
+    -aberto e fechado #
+  -direita
+    -aberto e fechado
+  -cima
+    -aberto e fechado
+  -baixo
+    -aberto e fechado
+
+-Pac man1
+  -esquerda
+    -aberto e fechado #
+  -direita
+    -aberto e fechado
+  -cima
+    -aberto e fechado
+  -baixo
+    -aberto e fechado
+
+-Pac man2
+  -esquerda
+    -aberto e fechado #
+  -direita
+    -aberto e fechado
+  -cima
+    -aberto e fechado
+  -baixo
+    -aberto e fechado
+
+-Pac man3
+  -esquerda
+    -aberto e fechado #
+  -direita
+    -aberto e fechado
+  -cima
+    -aberto e fechado
+  -baixo
+    -aberto e fechado
+
+-Frutas
+  -Morango # congelar um fantasma
+
+  -Cereja # invulnerabilidade
+
+  -Maçã # andar mais rápido
+
+-Fantasmas
+  -Azul # deixa o pac_man lento
+
+  -Laranja # deixa as bolinhas invisíveis
+
+  -Vermelho # não deixar ele usar frutas por 15 segundos
+
+  -Rosa # inverter os controles do pacman por 6.25 segundos
+
