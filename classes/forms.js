@@ -27,6 +27,12 @@ class Form{
         this.ButtonClick();
     }
 
+    Hide(){
+        this.Input.hide();
+        this.Button.hide();
+        this.Texto.hide();
+    }
+
     ButtonClick(){
         this.Button.mousePressed(()=>{
             this.Input.hide();

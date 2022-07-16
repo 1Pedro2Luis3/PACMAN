@@ -36,7 +36,7 @@ function setup(){
 function draw(){
     background("white");
 
-    if(PlayerCount === 2){
+    if(playerCount === 2){
        game.UpdateState(1);
     }
 
