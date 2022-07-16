@@ -14,7 +14,7 @@ function preload(){
     fantasma2 = loadImage("images/fantasma_azul.png");
     fantasma3 = loadImage("images/fantasma_rosa.png");
     fantasma4 = loadImage("images/fantasma_vermelho.png");
-    pacmanPadrao = loadAnimation("images/pacman_padrao.png","images/pacman_padrao2.png");
+    pacmanPadrao = loadImage("images/pacman_padrao.png");
     pacmanCereja = loadAnimation("images/pacman_poder_cereja.png","images/pacman_poder_cereja2.png");
     pacmanMaca = loadAnimation("images/pacman_poder_maca.png","images/pacman_poder_maca2.png");
     pacmanMorango = loadAnimation("images/pacman_poder_morango.png","images/pacman_poder_morango2.png");
@@ -22,7 +22,7 @@ function preload(){
     maca = loadImage("images/maca.png");
     morango = loadImage("images/morango.webp");
 
-}
+}//,"images/pacman_padrao2.png"
     
 function setup(){
     createCanvas(800,800);
@@ -30,6 +30,7 @@ function setup(){
     database = firebase.database();
 
     game = new Game();
+    game.GetState();
     game.Intro();
 }
 
@@ -41,6 +42,7 @@ function draw(){
     }
 
     if(gameState === 1){
+        background("blue");
         game.Start();
     }
 }

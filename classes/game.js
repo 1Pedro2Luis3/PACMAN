@@ -23,15 +23,19 @@ class Game{
        fantasma_vermelho.addImage(fantasma4);
 
        pacman = createSprite(300,300);
-       pacman.addAnimation("amarelo",pacmanPadrao);
-       pacman.addAnimation("marrom",pacmanCereja);
-       pacman.addAnimation("vermelho",pacmanMaca);
-       pacman.addAnimation("azul",pacmanMorango);
+       pacman.addImage("amarelo", pacmanPadrao);
+       //pacman.addAnimation("marrom", pacmanCereja);
+       //pacman.addAnimation("vermelho", pacmanMaca);
+       //pacman.addAnimation("azul", pacmanMorango);
 
-       frutas = createSprite(350,350);
-       frutas.addImage(cereja);
-       frutas.addImage(maca);
-       frutas.addImage(morango);
+       //pacman.changeImage("amarelo");
+
+       frutas = createSprite(500,500);
+       frutas.addImage("CEREJA", cereja);
+       frutas.addImage("MACA", maca);
+       frutas.addImage("MORANGO", morango);
+
+       frutas.changeImage("MACA");
     }  
        
     Start(){
@@ -62,7 +66,7 @@ class Game{
     ChangeElements(){
         form.Hide();
         this.ButtonReset.class("ButtonFonte");
-        this.ButtonReset.position(400,400);
+        this.ButtonReset.position(200,200);
     }
 
     ButtonResetar(){
