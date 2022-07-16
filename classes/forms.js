@@ -9,9 +9,9 @@ class Form{
   Posicao(){
         this.Input.position(700,400);
         this.Button.position(730,500);
-        this.Title.position(550,80);
+        this.Title.position(600,80);
 
-        this.Texto.position(600,400);
+        this.Texto.position(650,400);
     }
 
     style(){
@@ -34,6 +34,12 @@ class Form{
             
             var TelaDeCarregamento = `Bem-Vindo, ${this.Input.value()}.</br> Aguarde os demais jogadores...`;
             this.Texto.html(TelaDeCarregamento);
+
+            playerCount+=1;
+            player.Name = this.Input.value();
+            player.Index = playerCount;
+            player.AddPlayers();
+            player.UpdateCount(playerCount);
         })
     }
 }
