@@ -43,10 +43,12 @@ class Player{
     Update(){
         var PlayerIndex = "Players/Player"+this.Index;
         database.ref(PlayerIndex).update({
+            x: this.x,
+            y: this.y,
             Name: this.Name,
             Score: this.Pontuacao,
             Life: this.Life,
-           Inventario: this.Invent
+            Inventario: this.Invent
         })
     }
 }

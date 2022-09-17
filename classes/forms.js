@@ -9,7 +9,7 @@ class Form{
   Posicao(){
         this.Input.position(700,400);
         this.Button.position(730,500);
-        this.Title.position(600,80);
+        this.Title.position(625,80);
 
         this.Texto.position(650,400);
     }
