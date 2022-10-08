@@ -8,7 +8,8 @@ var fantasma_laranja, fantasma1;
 var fantasma_azul, fantasma2;
 var fantasma_rosa, fantasma3;
 var fantasma_vermelho, fantasma4;
-var pacman, pacmanPadrao, pacmanCereja,  pacmanMaca, pacmanMorango;
+var pacman, pacmanEsquerda, pacmanDireita, pacmanCima, pacmanBaixo;
+var pacmanCereja,  pacmanMaca, pacmanMorango;
 var frutas, cereja, maca, morango;
 var Players = [];
 
@@ -17,13 +18,19 @@ function preload(){
     fantasma2 = loadImage("images/fantasma_azul.png");
     fantasma3 = loadImage("images/fantasma_rosa.png");
     fantasma4 = loadImage("images/fantasma_vermelho.png");
-    pacmanPadrao = loadAnimation("images/pacman_padrao1.png", "images/pacman_padrao2.png");
+
+    pacmanEsquerda = loadAnimation("images/pacman_padrao1.png", "images/pacman_padrao2Esquerda.png");
+    pacmanDireita = loadAnimation("images/pacman_padrao1.png", "images/pacman_padrao2.png");
+    pacmanCima = loadAnimation("images/pacman_padrao1.png", "images/pacman_padrao2Cima.png");
+    pacmanBaixo = loadAnimation("images/pacman_padrao1.png", "images/pacman_padrao2Baixo.png");
+
     pacmanCereja = loadAnimation("images/pacman_poder_cereja1.png","images/pacman_poder_cereja2.png");
     pacmanMaca = loadAnimation("images/pacman_poder_maca1.png","images/pacman_poder_maca2.png");
     pacmanMorango = loadAnimation("images/pacman_poder_morango1.png","images/pacman_poder_morango2.png");
+    
     cereja = loadImage("images/cereja.png");
     maca = loadImage("images/maca.png");
-    morango = loadImage("images/morango.webp");
+    morango = loadImage("images/morango.png");
 
 }//"images/pacman_padrao.png",
     

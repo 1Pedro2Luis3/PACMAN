@@ -12,6 +12,13 @@ class Player{
     //Adiciona o player no banco de dados
     AddPlayers(){
         var PlayerIndex = "Players/Player"+this.Index;
+        if(this.index == 1){
+            this.x = 405;
+        }
+        else{
+            this.x = 430;
+        }
+
         database.ref(PlayerIndex).set({
             Name: this.Name,
             Score: this.Pontuacao,

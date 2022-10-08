@@ -9,34 +9,39 @@ class Game{
        
        form = new Form();
        form.Show();
-
+       
        GrupoDeBolinhas = new Group();
        GrupoDeParedes = new Group();
-
+       
        fantasma_laranja = createSprite(330,420);
        fantasma_laranja.addImage(fantasma1);
-       fantasma_laranja.scale = 0.8;
-
+       fantasma_laranja.scale = 0.15;
+       
        fantasma_azul = createSprite(380,420);
        fantasma_azul.addImage(fantasma2);
-       fantasma_azul.scale = 0.8;
+       fantasma_azul.scale = 0.15;
 
        fantasma_rosa = createSprite(430,420);
        fantasma_rosa.addImage(fantasma3);
-       fantasma_rosa.scale = 0.8;
+       fantasma_rosa.scale = 0.15;
 
        fantasma_vermelho = createSprite(480,420);
        fantasma_vermelho.addImage(fantasma4);
-       fantasma_vermelho.scale = 0.8;
+       fantasma_vermelho.scale = 0.15;
 
        pacman = createSprite(405,520);
-       pacman.addAnimation("amarelo", pacmanPadrao);
+       pacman.scale = 0.15;
+       pacman.addAnimation("amareloD", pacmanDireita);
+       pacman.addAnimation("amareloE", pacmanEsquerda);
+       pacman.addAnimation("amareloC", pacmanCima);
+       pacman.addAnimation("amareloB", pacmanBaixo);
       
        //pacman.addAnimation("marrom", pacmanCereja);
        //pacman.addAnimation("vermelho", pacmanMaca);
        //pacman.addAnimation("azul", pacmanMorango);
 
-       //Players = [pacman, fantasma_rosa, fantasma_laranja, fantasma_azul, fantasma_vermelho];
+       Players = [pacman, fantasma_rosa]; 
+        //fantasma_laranja, fantasma_azul, fantasma_vermelho];
 
        /*frutas = createSprite(500,500);
        frutas.addImage("CEREJA", cereja);
@@ -143,6 +148,7 @@ class Game{
 
     for (var a = 230; a < 770; a+=40){
        bolinha = createSprite(55,a,10,10);
+       GrupoDeBolinhas.add(bolinha);
        bolinha = createSprite(750,a,10,10);
        GrupoDeBolinhas.add(bolinha);
     }
@@ -164,6 +170,7 @@ class Game{
     }
     for (var f = 230; f < 600; f+=40){
        bolinha = createSprite(620,f,10,10);
+       GrupoDeBolinhas.add(bolinha);
        bolinha = createSprite(180,f,10,10);
        GrupoDeBolinhas.add(bolinha);
     }
@@ -177,12 +184,14 @@ class Game{
     }
     for (var i = 100; i < 200; i+=40){
       bolinha = createSprite(i,428,10,10);
+      GrupoDeBolinhas.add(bolinha);
       bolinha = createSprite(i,508,10,10);
       GrupoDeBolinhas.add(bolinha);
     }
 
     for (var j = 660; j < 710; j+=40){
       bolinha = createSprite(j,428,10,10);
+      GrupoDeBolinhas.add(bolinha);
       bolinha = createSprite(j,508,10,10);
       GrupoDeBolinhas.add(bolinha);
     }  
@@ -194,10 +203,22 @@ class Game{
         this.ButtonResetar();
 
     if(AllPlayers !== undefined){
-        this.Mov();
-        Colisao()
+        this.Colisao();
+        var i=0;
+        for(var plr in AllPlayers){
+           i+=1;
+           var x = AllPlayers[plr].x;
+           var y = AllPlayers[plr].y;
+           Players[i-1].x = x;
+           Players[i-1].y = y;
+        if(i == player.Index){
+            this.Mov(i);
+            fill("white");
+            ellipse(x,y,25);
+          }
+         }
         drawSprites();
-        }
+      }
     }
 
     UpdateState(State){
@@ -229,24 +250,36 @@ class Game{
         })
     }
     
-    Mov(){
+    Mov(i){
         if(keyDown("LEFT_ARROW")){
-          pacman.velocityX-=5;
+          player.x-=8;
+          if(i == 1){
+            Players[i-1].changeAnimation("amareloE", pacmanEsquerda);
+          }
           player.Update();
         }
 
         if(keyDown("RIGHT_ARROW")){
-          pacman.velocityX+=5;
+          player.x+=8;
+          if(i == 1){
+            Players[i-1].changeAnimation("amareloD", pacmanDireita);
+          }
           player.Update();
         }
 
         if(keyDown("UP_ARROW")){
-          pacman.velocityY-=5;
+          player.y-=8;
+          if(i == 1){
+            Players[i-1].changeAnimation("amareloC", pacmanCima);
+          }
           player.Update();
         }
 
         if(keyDown("DOWN_ARROW")){
-          pacman.velocityY+=5;
+          player.y+=8;
+          if(i == 1){
+            Players[i-1].changeAnimation("amareloB", pacmanBaixo);
+          }
           player.Update();
         }
     } 
@@ -257,6 +290,7 @@ class Game{
           player.Pontuacao +=100;
           player.Update();
       })
-
+      
+      pacman.collide(GrupoDeParedes);
     }
 } //chave da classe
